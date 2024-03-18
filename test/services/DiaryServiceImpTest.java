@@ -9,7 +9,7 @@ class DiaryServiceImpTest {
     @Test
     public void diaryCan_registerTest() {
         DiaryServiceImp diaryService = new DiaryServiceImp();
-
+// poke further
 
     }
 
