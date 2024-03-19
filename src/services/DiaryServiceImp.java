@@ -26,12 +26,22 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
+    public void lockDiary() {
+        isLocked = true;
+    }
+
+    @Override
     public long count() {
         return 0;
     }
 
     @Override
-    public void login(LoginRequest password) {
+    public void login(LoginRequest username, LoginRequest password) {
+
+    }
+
+    @Override
+    public void lockWith(LoginRequest password) {
 
     }
 
@@ -46,7 +56,7 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
-    public void unlock(LoginRequest unlock) {
+    public void unLockWith(LoginRequest unlock) {
 
     }
 

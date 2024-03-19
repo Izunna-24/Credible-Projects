@@ -11,12 +11,14 @@ public interface DiaryService {
     void registerWith(RegisterRequest register);
     Diary findById(String id);
     List<Diary> findAll();
+    void lockDiary();
     long count();
-    void login(LoginRequest password);
+    void login(LoginRequest username, LoginRequest password);
+    void lockWith(LoginRequest password);
 
     boolean isLocked();
     void remove(RegisterRequest request);
-    void unlock(LoginRequest unlock);
+    void unLockWith(LoginRequest unlock);
     void CreateEntry(CreateEntryRequest createEntry);
 
 }
