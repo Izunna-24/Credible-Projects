@@ -8,7 +8,7 @@ import dtos.RegisterRequest;
 import java.util.List;
 
 public interface DiaryService {
-    void register(RegisterRequest register);
+    void registerWith(RegisterRequest register);
     Diary findById(String id);
     List<Diary> findAll();
     long count();

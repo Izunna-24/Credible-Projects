@@ -8,8 +8,10 @@ import dtos.RegisterRequest;
 import java.util.List;
 
 public class DiaryServiceImp implements DiaryService{
+    private boolean isLocked = false;
     @Override
-    public void register(RegisterRequest request) {
+    public void registerWith(RegisterRequest request) {
+
 
     }
 
@@ -35,7 +37,7 @@ public class DiaryServiceImp implements DiaryService{
 
     @Override
     public boolean isLocked() {
-        return false;
+        return isLocked;
     }
 
     @Override
