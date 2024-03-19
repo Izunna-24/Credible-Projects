@@ -1,5 +1,7 @@
 package exceptions;
 
-public class UsernameExistsException extends RuntimeException{
-    public UsernameExistsException(String message){}
+public class UsernameExistsException extends DiaryExceptions{
+    public UsernameExistsException(String message){
+        super(message);
+    }
 }
