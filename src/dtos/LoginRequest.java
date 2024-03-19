@@ -3,6 +3,7 @@ package dtos;
 public class LoginRequest {
     private String username;
     private String  password;
+    private String confirmPassword;
     public String getPassword() {
         return password;
     }
@@ -24,12 +25,12 @@ public class LoginRequest {
 
 
     public String getReEnterPassword() {
-        return reEnterPassword;
+        return confirmPassword;
     }
 
     public void setReEnterPassword(String reEnterPassword) {
-        this.reEnterPassword = reEnterPassword;
+        this.confirmPassword = reEnterPassword;
     }
 
-    private String reEnterPassword;
+
 }
