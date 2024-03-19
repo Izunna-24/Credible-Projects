@@ -1,6 +1,11 @@
 package services;
 
+import data.models.Diary;
+import dtos.CreateEntryRequest;
+import dtos.LoginRequest;
 import dtos.RegisterRequest;
+
+import java.util.List;
 
 public class DiaryServiceImp implements DiaryService{
     @Override
@@ -9,7 +14,22 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
-    public void lock(RegisterRequest register) {
+    public Diary findById(String id) {
+        return null;
+    }
+
+    @Override
+    public List<Diary> findAll() {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void login(LoginRequest password) {
 
     }
 
@@ -24,7 +44,12 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
-    public void unlock(RegisterRequest request) {
+    public void unlock(LoginRequest unlock) {
+
+    }
+
+    @Override
+    public void CreateEntry(CreateEntryRequest createEntry) {
 
     }
 }
