@@ -29,6 +29,8 @@ class DiaryServiceImpTest {
     public void diaryIsLocked_UnlockWithPasswordTest(){
         assertTrue(diaryService.isLocked());
         LoginRequest login = new LoginRequest();
+        diaryService.unLockWith(login);
+        assertFalse(diaryService.isLocked());
     }
 
 

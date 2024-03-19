@@ -13,7 +13,7 @@ public interface DiaryService {
     List<Diary> findAll();
     void lockDiary();
     long count();
-    void login(LoginRequest username, LoginRequest password);
+    void login(LoginRequest loginRequest);
     void lockWith(LoginRequest password);
 
     boolean isLocked();
