@@ -35,8 +35,8 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
-    public void lockDiary() {
-        isLocked = true;
+    public boolean isLocked() {
+        return isLocked;
     }
 
     @Override
@@ -50,17 +50,17 @@ public class DiaryServiceImp implements DiaryService{
         if (!diary.getPassword().equals(loginRequest.getPassword())){
             throw new UsernameDoesNotExistException("Invalid Entry");
         }
-        isLocked = false;
+        login = false;
     }
 
     @Override
-    public void lockWith(LoginRequest password) {
+    public void logout(LoginRequest loginRequest) {
 
     }
 
     @Override
-    public boolean isLocked() {
-        return isLocked;
+    public boolean isLogin() {
+        return login = true;
     }
 
     @Override
