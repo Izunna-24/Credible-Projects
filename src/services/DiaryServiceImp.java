@@ -82,7 +82,7 @@ public class DiaryServiceImp implements DiaryService{
 
     @Override
     public void remove(RegisterRequest request) {
-
+//havent tested my remove method
     }
 
     @Override
