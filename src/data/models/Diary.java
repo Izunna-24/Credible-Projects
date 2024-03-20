@@ -1,6 +1,7 @@
 package data.models;
 
 public class Diary {
+    private boolean isLocked = true;
     private int Id;
     private String username;
     private String password;
@@ -39,5 +40,12 @@ public class Diary {
         this.password = password;
     }
 
+    public void setLocked(boolean locker){
+        isLocked = locker;
+     }
 
+
+    public boolean isLocked() {
+        return isLocked;
+    }
 }

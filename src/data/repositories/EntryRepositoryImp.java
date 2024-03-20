@@ -12,8 +12,8 @@ public class EntryRepositoryImp implements EntryRepository{
     public Entry save(Entry entry) {
         if (entry.getId() == 0) {
             entry.setId(++countId);
-            entries.add(entry);
         }
+        entries.add(entry);
         return entry;
     }
 
@@ -39,6 +39,7 @@ public class EntryRepositoryImp implements EntryRepository{
 
     @Override
     public long count() {
+
         return entries.size();
     }
 

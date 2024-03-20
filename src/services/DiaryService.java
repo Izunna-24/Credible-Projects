@@ -1,6 +1,7 @@
 package services;
 
 import data.models.Diary;
+import data.models.Entry;
 import dtos.CreateEntryRequest;
 import dtos.LoginRequest;
 import dtos.RegisterRequest;
@@ -9,14 +10,13 @@ import java.util.List;
 
 public interface DiaryService {
     void registerWith(RegisterRequest register);
-    Diary findById(String id);
-    List<Diary> findAll();
-    boolean isLocked();
+    Diary findById(java.lang.String id);
+    List<Entry> findAllEntries(String username);
     long count();
-    void login(LoginRequest loginRequest);
-    void logout(LoginRequest loginRequest);
+    void loginWith(LoginRequest loginRequest);
+    void logout(String loginRequest);
 
     void remove(RegisterRequest request);
-    void CreateEntry(CreateEntryRequest createEntry);
+    void createEntry(CreateEntryRequest createEntry);
 
 }

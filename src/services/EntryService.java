@@ -6,12 +6,9 @@ import dtos.CreateEntryRequest;
 import java.util.List;
 
 public interface EntryService {
-    List<Entry> findAll();
-    Entry findByUsername(String username);
+    List<Entry> findByUsername(String username);
+    Entry findById(int id);
     long count();
-    Entry findByDate();
-    Entry findByTitle(String title);
-    void createEntry(CreateEntryRequest createEntry);
-    void updateEntry(CreateEntryRequest updateEntry);
-    void delete(String entryId);
+   void save(Entry entry);
+   void delete(String entryId);
 }
