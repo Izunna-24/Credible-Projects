@@ -14,4 +14,6 @@ public interface EntryRepository {
     void delete(Entry entry);
 
 
+    List<Entry> findTheAuthorStuff(String author);
+
 }
