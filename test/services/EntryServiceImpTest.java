@@ -44,8 +44,21 @@ public void provided(){
 
 
     @Test
-    public void entriesInTheEntryServRepoCanBeFoundByAuthorTest() {
+    public void entriesInThe_entryServRepo_canBeFoundByAuthorTest() {
         assertEquals(0, entryService.count());
+
+        CreateEntryRequest createEntryRequest = new CreateEntryRequest();
+        createEntryRequest.setTitle("Route/Port");
+        createEntryRequest.setBody("");
+        createEntryRequest.setAuthor("Pascal");
+        entryService.createEntry(createEntryRequest);
+
+        createEntryRequest.setTitle("Tomcat");
+        createEntryRequest.setBody("Apache Tomcat provides env for executing prog written in java");
+        createEntryRequest.setAuthor("Izunna");
+        entryService.createEntry(createEntryRequest);
+
+
 
         
     }
