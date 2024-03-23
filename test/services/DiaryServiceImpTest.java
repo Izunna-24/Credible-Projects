@@ -51,8 +51,8 @@ class DiaryServiceImpTest {
         loginRequest.setUsername("Bunkers!");
         loginRequest.setPassword("password");
 
-
         diaryService.loginWith(loginRequest);
+
         assertFalse(diary.isLocked());
         diaryService.logout("Bunkers!");
         assertTrue(diary.isLocked());
@@ -73,11 +73,9 @@ class DiaryServiceImpTest {
         createEntryRequest.setAuthor("Mandy");
         diaryService.createEntry(createEntryRequest);
 
-
-        assertEquals(1, diaryService.findAllEntries("Mandy").size());
-
+        System.out.println(diaryService.findAllEntries("Mandy"));
 
 
-
+        assertEquals(1, diaryService.findByTheAuthor("Mandy").size());
     }
 }
