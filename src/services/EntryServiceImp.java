@@ -12,7 +12,7 @@ public class EntryServiceImp implements EntryService {
 
     private EntryRepository entryRepository = new EntryRepositoryImp();
     @Override
-    public List<Entry> findByUsername(String username) {
+    public List<Entry> findByAuthor(String username) {
         List<Entry> entries = new ArrayList<>();
         for (Entry entry : entryRepository.findAll()) {
             if (entry.getAuthor().equalsIgnoreCase(username)) {
