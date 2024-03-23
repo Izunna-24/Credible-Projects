@@ -24,7 +24,9 @@ public class EntryServiceImp implements EntryService {
 
     @Override
     public Entry findById(int id) {
-        return null;
+        if (entryRepository.findById(id) == null) throw new
+        return entryRepository.findById(id);
+
     }
 
     @Override
