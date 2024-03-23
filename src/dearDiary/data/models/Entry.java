@@ -1,4 +1,4 @@
-package dearDiary.controllers.data.models;
+package dearDiary.data.models;
 import java.time.LocalDateTime;
 
 public class Entry {

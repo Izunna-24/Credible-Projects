@@ -1,4 +1,4 @@
-package dearDiary.controllers.exceptions;
+package dearDiary.exceptions;
 
 public class DiaryDoesNotExistException extends DiaryExceptions {
     public DiaryDoesNotExistException(String message){

@@ -1,7 +1,7 @@
-package dearDiary.controllers.services;
+package dearDiary.services;
 
-import dearDiary.controllers.data.models.Entry;
-import dearDiary.controllers.dtos.CreateEntryRequest;
+import dearDiary.data.models.Entry;
+import dearDiary.dtos.CreateEntryRequest;
 
 import java.util.List;
 

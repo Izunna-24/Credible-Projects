@@ -1,7 +1,7 @@
 package dearDiary.controllers;
 
-import dearDiary.controllers.services.DiaryService;
-import dearDiary.controllers.services.DiaryServiceImp;
+import dearDiary.services.DiaryService;
+import dearDiary.services.DiaryServiceImp;
 
 public class EntryController {
     private DiaryService diaryService = new DiaryServiceImp();

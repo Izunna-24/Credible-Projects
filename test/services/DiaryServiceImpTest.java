@@ -1,10 +1,10 @@
 package services;
 
-import dearDiary.controllers.data.models.Diary;
-import dearDiary.controllers.services.DiaryServiceImp;
-import dearDiary.controllers.dtos.CreateEntryRequest;
-import dearDiary.controllers.dtos.LoginRequest;
-import dearDiary.controllers.dtos.RegisterRequest;
+import dearDiary.data.models.Diary;
+import dearDiary.services.DiaryServiceImp;
+import dearDiary.dtos.CreateEntryRequest;
+import dearDiary.dtos.LoginRequest;
+import dearDiary.dtos.RegisterRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

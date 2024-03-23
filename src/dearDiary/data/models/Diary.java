@@ -1,4 +1,4 @@
-package dearDiary.controllers.data.models;
+package dearDiary.data.models;
 
 public class Diary {
     private boolean isLocked = true;

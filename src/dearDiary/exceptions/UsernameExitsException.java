@@ -1,4 +1,4 @@
-package dearDiary.controllers.exceptions;
+package dearDiary.exceptions;
 
 public class UsernameExitsException extends DiaryExceptions{
     public UsernameExitsException(String message){

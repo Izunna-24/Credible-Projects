@@ -1,6 +1,6 @@
-package dearDiary.controllers.dtos;
+package dearDiary.dtos;
 
-public class LoginRequest {
+public class RegisterRequest {
     private String username;
     private String password;
 
@@ -11,6 +11,8 @@ public class LoginRequest {
     public void setUsername(String username) {
         this.username = username;
     }
+
+
 
     public String getPassword() {
         return password;

@@ -1,7 +1,7 @@
 package services;
 
-import dearDiary.controllers.services.EntryServiceImp;
-import dearDiary.controllers.dtos.CreateEntryRequest;
+import dearDiary.services.EntryServiceImp;
+import dearDiary.dtos.CreateEntryRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
