@@ -48,11 +48,7 @@ public void provided(){
 
     @Test
     public void testThat_entryCanBeFoundByUsername() {
-        List<Entry> entries = new ArrayList<>();
-        EntryServiceImp entryServiceImplementation = new EntryServiceImp();
-        Entry entry = new Entry();
-        entries.add(entry);
-
+        assertEquals(0, entryService.count());
     }
 
     @Test
