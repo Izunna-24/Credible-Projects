@@ -16,7 +16,9 @@ public interface DiaryService {
     void loginWith(LoginRequest loginRequest);
     void logout(String loginRequest);
 
-    void remove(RegisterRequest request);
+    void delete(RegisterRequest request);
     void createEntry(CreateEntryRequest createEntry);
+
+    List<Entry> findByTheAuthor(String username);
 
 }
