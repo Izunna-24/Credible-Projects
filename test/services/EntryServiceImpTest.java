@@ -35,8 +35,8 @@ public void provided(){
         createEntryRequest.setAuthor("Pascal");
         entryService.createEntry(createEntryRequest);
 
-        createEntryRequest.setTitle("tomcat");
-        createEntryRequest.setBody("apache tomcat provides env for executing prog written in java");
+        createEntryRequest.setTitle("Tomcat");
+        createEntryRequest.setBody("Apache Tomcat provides env for executing prog written in java");
         createEntryRequest.setAuthor("Izunna");
         entryService.createEntry(createEntryRequest);
 
@@ -47,8 +47,9 @@ public void provided(){
 
 
     @Test
-    public void testThat_entryCanBeFoundByUsername() {
+    public void entriesInTheEntryServRepoCanBeFoundByAuthorTest() {
         assertEquals(0, entryService.count());
+
         
     }
 
