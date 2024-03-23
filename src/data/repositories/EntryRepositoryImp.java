@@ -54,4 +54,14 @@ public class EntryRepositoryImp implements EntryRepository{
         entries.remove(entry);
 
     }
+
+    @Override
+    public List<Entry> findTheAuthorStuff(String author) {
+        List<Entry> authorEntries = new ArrayList<>();
+        for (Entry entry : entries) {
+            if (entry.getAuthor().equalsIgnoreCase(author))
+                authorEntries.add(entry);
+        }
+        return authorEntries;
+    }
 }
