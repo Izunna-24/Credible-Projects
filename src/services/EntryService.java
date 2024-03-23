@@ -6,7 +6,7 @@ import dtos.CreateEntryRequest;
 import java.util.List;
 
 public interface EntryService {
-    List<Entry> findByUsername(String username);
+    List<Entry> findByAuthor(String username);
     Entry findById(int id);
     long count();
    void createEntry(CreateEntryRequest createEntryRequest);
