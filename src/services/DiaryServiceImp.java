@@ -52,7 +52,7 @@ public class DiaryServiceImp implements DiaryService{
 
     @Override
     public List<Entry> findAllEntries(String username) {
-        return entryService.findByUsername(username);
+        return entryService.findByAuthor(username);
     }
 
 
