@@ -1,18 +1,18 @@
-package services;
+package dearDiary.controllers.services;
 
-import data.models.Diary;
-import data.models.Entry;
-import data.repositories.DiaryRepository;
-import data.repositories.DiaryRepositoryImp;
-import data.repositories.EntryRepository;
-import data.repositories.EntryRepositoryImp;
-import dtos.CreateEntryRequest;
-import dtos.LoginRequest;
-import dtos.RegisterRequest;
-import exceptions.DiaryDoesNotExistException;
-import exceptions.InvalidInputException;
-import exceptions.UsernameDoesNotExistException;
-import exceptions.UsernameExitsException;
+import dearDiary.controllers.data.models.Diary;
+import dearDiary.controllers.data.models.Entry;
+import dearDiary.controllers.data.repositories.DiaryRepository;
+import dearDiary.controllers.data.repositories.DiaryRepositoryImp;
+import dearDiary.controllers.data.repositories.EntryRepository;
+import dearDiary.controllers.data.repositories.EntryRepositoryImp;
+import dearDiary.controllers.dtos.CreateEntryRequest;
+import dearDiary.controllers.dtos.LoginRequest;
+import dearDiary.controllers.dtos.RegisterRequest;
+import dearDiary.controllers.exceptions.DiaryDoesNotExistException;
+import dearDiary.controllers.exceptions.InvalidInputException;
+import dearDiary.controllers.exceptions.UsernameDoesNotExistException;
+import dearDiary.controllers.exceptions.UsernameExitsException;
 
 import java.util.List;
 

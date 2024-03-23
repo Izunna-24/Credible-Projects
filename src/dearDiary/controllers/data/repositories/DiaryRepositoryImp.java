@@ -1,6 +1,6 @@
-package data.repositories;
+package dearDiary.controllers.data.repositories;
 
-import data.models.Diary;
+import dearDiary.controllers.data.models.Diary;
 
 import java.util.ArrayList;
 import java.util.List;

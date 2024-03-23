@@ -1,6 +1,7 @@
 package data.repositories;
 
-import data.models.Entry;
+import dearDiary.controllers.data.models.Entry;
+import dearDiary.controllers.data.repositories.EntryRepositoryImp;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

@@ -1,12 +1,9 @@
 package services;
 
-import data.models.Entry;
-import dtos.CreateEntryRequest;
+import dearDiary.controllers.services.EntryServiceImp;
+import dearDiary.controllers.dtos.CreateEntryRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

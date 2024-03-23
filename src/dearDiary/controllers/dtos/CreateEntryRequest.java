@@ -1,4 +1,4 @@
-package dtos;
+package dearDiary.controllers.dtos;
 
 public class CreateEntryRequest {
     private String title;

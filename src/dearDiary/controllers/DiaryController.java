@@ -1,4 +1,4 @@
-package controllers;
+package dearDiary.controllers;
 
 public class DiaryController {
 

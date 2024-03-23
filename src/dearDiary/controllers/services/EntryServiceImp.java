@@ -1,9 +1,9 @@
-package services;
+package dearDiary.controllers.services;
 
-import data.models.Entry;
-import data.repositories.EntryRepository;
-import data.repositories.EntryRepositoryImp;
-import dtos.CreateEntryRequest;
+import dearDiary.controllers.data.models.Entry;
+import dearDiary.controllers.data.repositories.EntryRepository;
+import dearDiary.controllers.data.repositories.EntryRepositoryImp;
+import dearDiary.controllers.dtos.CreateEntryRequest;
 
 import java.util.ArrayList;
 import java.util.List;
