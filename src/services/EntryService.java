@@ -9,6 +9,7 @@ public interface EntryService {
     List<Entry> findByUsername(String username);
     Entry findById(int id);
     long count();
-   void save(Entry entry);
+   void createEntry(CreateEntryRequest createEntryRequest);
+   void updateEntry(Entry entry);
    void delete(String entryId);
 }
