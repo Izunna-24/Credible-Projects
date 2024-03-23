@@ -49,6 +49,7 @@ public void provided(){
     @Test
     public void testThat_entryCanBeFoundByUsername() {
         assertEquals(0, entryService.count());
+        
     }
 
     @Test
