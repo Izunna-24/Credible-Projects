@@ -17,8 +17,6 @@ private EntryServiceImp entryService;
 public void provided(){
     entryService = new EntryServiceImp();
 }
-
-
     @Test
     public void entryCanBeCreatedTest() {
         CreateEntryRequest createEntryRequest = new CreateEntryRequest();
@@ -29,6 +27,24 @@ public void provided(){
         assertEquals(1,entryService.count());
 
     }
+    @Test
+    public void entriesCanBeCreated_entriesCreatedArePresentInTheRepoTest() {
+        CreateEntryRequest createEntryRequest = new CreateEntryRequest();
+        createEntryRequest.setTitle("Coping");
+        createEntryRequest.setBody("Survival is a must");
+        createEntryRequest.setAuthor("Pascal");
+        entryService.createEntry(createEntryRequest);
+
+        createEntryRequest.setTitle("tomcat");
+        createEntryRequest.setBody("apache tomcat provides env for executing prog written in java");
+        createEntryRequest.setAuthor("Izunna");
+        entryService.createEntry(createEntryRequest);
+
+        assertEquals(2,entryService.count());
+
+    }
+
+
 
     @Test
     public void testThat_entryCanBeFoundByUsername() {
