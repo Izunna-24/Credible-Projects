@@ -1,9 +1,14 @@
 package services;
 
+import dearDiary.data.models.Entry;
 import dearDiary.services.EntryServiceImp;
 import dearDiary.dtos.CreateEntryRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -48,15 +53,20 @@ public void provided(){
         assertEquals(0, entryService.count());
 
         CreateEntryRequest createEntryRequest = new CreateEntryRequest();
-        createEntryRequest.setTitle("Route/Port");
-        createEntryRequest.setBody("");
-        createEntryRequest.setAuthor("Pascal");
+        createEntryRequest.setTitle("Route/Port Number");
+        createEntryRequest.setBody("Local access for a DB");
+        createEntryRequest.setAuthor("Jim");
         entryService.createEntry(createEntryRequest);
 
-        createEntryRequest.setTitle("Tomcat");
-        createEntryRequest.setBody("Apache Tomcat provides env for executing prog written in java");
+        createEntryRequest.setTitle("http methods");
+        createEntryRequest.setBody("get, post, delete, patch, put");
         createEntryRequest.setAuthor("Izunna");
         entryService.createEntry(createEntryRequest);
+        assertEquals(2, entryService.count());
+        entryService.findByAuthor("Jim");
+        List<Entry> confirmEntry = new ArrayList<>(Arrays.asList(findById(1), ));
+        assertEquals();
+
 
 
 

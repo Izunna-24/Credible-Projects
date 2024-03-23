@@ -74,7 +74,6 @@ class DiaryServiceImpTest {
         createEntryRequest.setAuthor("Mandy");
         diaryService.createEntry(createEntryRequest);
 
-        System.out.println(diaryService.findAllEntries("Mandy"));
 
 
         assertEquals(1, diaryService.findByTheAuthor("Mandy").size());
