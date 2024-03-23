@@ -12,7 +12,7 @@ import dearDiary.dtos.RegisterRequest;
 import dearDiary.exceptions.DiaryDoesNotExistException;
 import dearDiary.exceptions.InvalidInputException;
 import dearDiary.exceptions.UsernameDoesNotExistException;
-import dearDiary.exceptions.UsernameExitsException;
+import dearDiary.exceptions.UsernameAlreadyExitsException;
 
 import java.util.List;
 
@@ -37,7 +37,7 @@ public class DiaryServiceImp implements DiaryService{
         throw new InvalidInputException("Wrong login details ");
         }
         if(diaryRepo.findById(request.getUsername()) != null){
-            throw new UsernameExitsException("Username not available");
+            throw new UsernameAlreadyExitsException("Username not available");
         }
     }
 
