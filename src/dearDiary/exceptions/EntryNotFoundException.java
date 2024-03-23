@@ -1,4 +1,7 @@
 package dearDiary.exceptions;
 
-public class EntryNotFoundException {
+public class EntryNotFoundException extends DiaryExceptions {
+    public EntryNotFoundException(String message){
+        super(message);
+    }
 }
