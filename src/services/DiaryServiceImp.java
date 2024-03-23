@@ -4,6 +4,8 @@ import data.models.Diary;
 import data.models.Entry;
 import data.repositories.DiaryRepository;
 import data.repositories.DiaryRepositoryImp;
+import data.repositories.EntryRepository;
+import data.repositories.EntryRepositoryImp;
 import dtos.CreateEntryRequest;
 import dtos.LoginRequest;
 import dtos.RegisterRequest;
@@ -16,7 +18,8 @@ import java.util.List;
 
 public class DiaryServiceImp implements DiaryService{
     private DiaryRepository diaryRepo = new DiaryRepositoryImp();
-    private EntryService entryService = new EntryServiceImplementation();
+    private EntryService entryService = new EntryServiceImp();
+    private EntryRepository entryRepository = new EntryRepositoryImp();
 
     @Override
     public void registerWith(RegisterRequest request) {
@@ -81,8 +84,8 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
-    public void remove(RegisterRequest request) {
-//havent tested my remove method
+    public void delete(RegisterRequest request) {
+    //
     }
 
     @Override
@@ -91,7 +94,12 @@ public class DiaryServiceImp implements DiaryService{
         entry.setTitle(createEntry.getTitle());
         entry.setBody(createEntry.getBody());
         entry.setAuthor(createEntry.getAuthor());
-        entryService.save(entry);
+        entryRepository.save(entry);
+    }
+
+    @Override
+    public List<Entry> findByTheAuthor(String username) {
+        return entryRepository.findTheAuthorStuff(username);
     }
 
 }
