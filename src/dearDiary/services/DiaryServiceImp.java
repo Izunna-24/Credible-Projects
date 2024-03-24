@@ -4,22 +4,15 @@ import dearDiary.data.models.Diary;
 import dearDiary.data.models.Entry;
 import dearDiary.data.repositories.DiaryRepository;
 import dearDiary.data.repositories.DiaryRepositoryImp;
-import dearDiary.data.repositories.EntryRepository;
-import dearDiary.data.repositories.EntryRepositoryImp;
-import dearDiary.dtos.CreateEntryRequest;
-import dearDiary.dtos.LoginRequest;
-import dearDiary.dtos.RegisterRequest;
-import dearDiary.exceptions.DiaryDoesNotExistException;
-import dearDiary.exceptions.InvalidInputException;
-import dearDiary.exceptions.UsernameDoesNotExistException;
-import dearDiary.exceptions.UsernameAlreadyExitsException;
+import dearDiary.dtos.*;
+import dearDiary.exceptions.*;
 
 import java.util.List;
 
 public class DiaryServiceImp implements DiaryService{
     private DiaryRepository diaryRepo = new DiaryRepositoryImp();
     private EntryService entryService = new EntryServiceImp();
-    private EntryRepository entryRepository = new EntryRepositoryImp();
+
 
     @Override
     public void registerWith(RegisterRequest request) {
@@ -34,7 +27,7 @@ public class DiaryServiceImp implements DiaryService{
         if (request.getUsername() == null || request.getPassword() == null ){
             throw new InvalidInputException("Wrong login Details");}
         if(request.getUsername().isEmpty() || request.getPassword().isEmpty()){
-        throw new InvalidInputException("Wrong login details ");
+            throw new InvalidInputException("Wrong login details ");
         }
         if(diaryRepo.findById(request.getUsername()) != null){
             throw new UsernameAlreadyExitsException("Username not available");
@@ -42,7 +35,7 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
-    public Diary findById(java.lang.String username) {
+    public Diary findById(String username) {
         Diary diary = diaryRepo.findById(username);
         if (diary == null) {throw new DiaryDoesNotExistException("Diary not found");
             }
@@ -54,14 +47,10 @@ public class DiaryServiceImp implements DiaryService{
     public List<Entry> findAllEntries(String username) {
         return entryService.findByAuthor(username);
     }
-
-
-
     @Override
     public long count() {
         return diaryRepo.count();
     }
-
     @Override
     public void loginWith(LoginRequest loginRequest) {
         Diary diary = findById(loginRequest.getUsername());
@@ -69,13 +58,15 @@ public class DiaryServiceImp implements DiaryService{
         diary.setLocked(false);
         diaryRepo.save(diary);
     }
-
     private static void validateLogin(LoginRequest loginRequest, Diary diary) {
         if (!diary.getPassword().equals(loginRequest.getPassword())){
-            throw new UsernameDoesNotExistException("Invalid Entry");
+            throw new WrongPasswordException("Check your details and try again");
         }
-    }
+        if (!diary.getUsername().equalsIgnoreCase(loginRequest.getUsername())){
+            throw new WrongUserNameException("Check your details and try again");
+        }
 
+    }
     @Override
     public void logout(String username) {
         Diary diary = findById(username);
@@ -84,22 +75,40 @@ public class DiaryServiceImp implements DiaryService{
     }
 
     @Override
-    public void delete(RegisterRequest request) {
-    //
+    public void updateEntry(UpdateEntryRequest updateEntryRequest) {
+    Entry entry = entryService.findById(updateEntryRequest.getId());
+    if (entry == null) {throw new EntryNotFoundException("Entry not found");}
+    Diary diary = diaryRepo.findById(updateEntryRequest.getAuthor());
+    if (diary == null) {throw new DiaryDoesNotExistException("Diary does not exist");}
+    entryService.save(entry);
     }
 
     @Override
-    public void createEntry(CreateEntryRequest createEntry) {
+    public void deleteEntry(DeleteEntryRequest deleteRequest) {
+    Diary diary = diaryRepo.findById(deleteRequest.getAuthor());
+    if (diary == null) throw new EntryNotFoundException("Diary does not exist");
+    entryService.deleteEntry(deleteRequest);
+    }
+
+    @Override
+    public void createEntryWith(CreateEntryRequest createEntry) {
         Entry entry = new Entry();
         entry.setTitle(createEntry.getTitle());
         entry.setBody(createEntry.getBody());
         entry.setAuthor(createEntry.getAuthor());
-        entryRepository.save(entry);
+        entryService.save(entry);
     }
 
     @Override
-    public List<Entry> findByTheAuthor(String username) {
-        return entryRepository.findTheAuthorStuff(username);
+    public List<Entry> findEntriesByAuthor(String username) {
+        return entryService.findByAuthor(username);
+    }
+
+    @Override
+    public void deleteDiary(DeleteEntryRequest deleteRequest) {
+        Diary diary = diaryRepo.findById(deleteRequest.getAuthor());
+        if (diary == null) throw new DiaryDoesNotExistException("Diary does not exist");
+        diaryRepo.delete(diary);
     }
 
 }
