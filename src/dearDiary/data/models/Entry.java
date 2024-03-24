@@ -2,7 +2,10 @@ package dearDiary.data.models;
 import java.time.LocalDateTime;
 
 public class Entry {
-
+    private String author;
+    private int id;
+    private String title;
+    private String body;
     public int getId() {
         return id;
     }
@@ -26,9 +29,7 @@ public class Entry {
     public void setBody(String body) {
         this.body = body;
     }
-    private int id;
-    private String title;
-    private String body;
+
     private LocalDateTime dateCreated = LocalDateTime.now();
 
     public String getAuthor() {
@@ -39,7 +40,6 @@ public class Entry {
         this.author = author;
     }
 
-    private String author;
 
     public Entry(String title, String body){
         this.title = title;
