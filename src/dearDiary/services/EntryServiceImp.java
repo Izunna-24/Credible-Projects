@@ -4,27 +4,25 @@ import dearDiary.data.models.Entry;
 import dearDiary.data.repositories.EntryRepository;
 import dearDiary.data.repositories.EntryRepositoryImp;
 import dearDiary.dtos.CreateEntryRequest;
+import dearDiary.dtos.DeleteEntryRequest;
+import dearDiary.dtos.UpdateEntryRequest;
+import dearDiary.exceptions.EntryNotFoundException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EntryServiceImp implements EntryService {
 
     private EntryRepository entryRepository = new EntryRepositoryImp();
+
     @Override
-    public List<Entry> findByAuthor(String username) {
-        List<Entry> entries = new ArrayList<>();
-        for (Entry entry : entryRepository.findAll()) {
-            if (entry.getAuthor().equalsIgnoreCase(username)) {
-                entries.add(entry);
-            }
-        }
-        return entries;
+    public List<Entry> findByAuthor(String author) {
+
+        return entryRepository.findByAuthor(author);
     }
 
     @Override
     public Entry findById(int id) {
-        if (entryRepository.findById(id) == null) throw new
+        if (entryRepository.findById(id) == null) throw new EntryNotFoundException("Entry does not exist");
         return entryRepository.findById(id);
 
     }
@@ -35,7 +33,7 @@ public class EntryServiceImp implements EntryService {
     }
 
     @Override
-    public void createEntry(CreateEntryRequest createEntryRequest) {
+    public void createEntryWith(CreateEntryRequest createEntryRequest) {
         Entry entry = new Entry();
         entry.setTitle(createEntryRequest.getTitle());
         entry.setBody(createEntryRequest.getBody());
@@ -44,13 +42,29 @@ public class EntryServiceImp implements EntryService {
     }
 
     @Override
-    public void updateEntry(Entry entry) {
-
+    public void updateEntryWith(UpdateEntryRequest updateEntryRequest) {
+        Entry entry = entryRepository.findById(updateEntryRequest.getId());
+        if (entry == null) throw  new EntryNotFoundException("Entry Not Found");
+        if (!entry.getAuthor().equalsIgnoreCase(updateEntryRequest.getAuthor())) throw new EntryNotFoundException("Entry not found");
+        entryRepository.save(entry);
     }
 
 
     @Override
-    public void delete(String entryId) {
-
+    public void deleteEntry(DeleteEntryRequest deleteRequest) {
+        Entry entry = entryRepository.findById(deleteRequest.getId());
+        if (entry == null) throw new EntryNotFoundException("Entry Not Found");
+        entryRepository.delete(entry);
     }
+
+    @Override
+    public List<Entry> findAllEntries() {
+        return entryRepository.findAll();
+    }
+
+    @Override
+    public void save(Entry entry) {
+        entryRepository.save(entry);
+    }
+
 }
