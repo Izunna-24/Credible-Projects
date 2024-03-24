@@ -32,10 +32,7 @@ public class EntryRepositoryImp implements EntryRepository{
         return null;
     }
 
-    @Override
-    public Entry findByAuthor() {
-        return null;
-    }
+
 
     @Override
     public long count() {
@@ -45,7 +42,7 @@ public class EntryRepositoryImp implements EntryRepository{
 
     @Override
     public void delete(int id) {
-        Entry  entry = findById(1);
+        Entry  entry = findById(id);
         entries.remove(entry);
     }
 
@@ -56,12 +53,12 @@ public class EntryRepositoryImp implements EntryRepository{
     }
 
     @Override
-    public List<Entry> findTheAuthorStuff(String author) {
-        List<Entry> authorEntries = new ArrayList<>();
+    public List<Entry> findByAuthor(String author) {
+        List<Entry> entryByAuthor = new ArrayList<>();
         for (Entry entry : entries) {
             if (entry.getAuthor().equalsIgnoreCase(author))
-                authorEntries.add(entry);
+                entryByAuthor.add(entry);
         }
-        return authorEntries;
+        return entryByAuthor;
     }
 }
